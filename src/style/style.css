@@ -65,7 +65,7 @@
   transform: scale(1.2);
 }
 
-.about-name > span {
+.button-name > span {
   padding: 8px 16px;
   background-color: #c8c8c848;
   border-radius: 34px;
@@ -73,11 +73,18 @@
   font-weight: 600;
 }
 
-.about-description {
+.description {
   text-align: justify;
   color: rgb(86, 86, 86);
 }
 
-.about-button {
+.c-button {
   width: fit-content;
+}
+
+.skill-icon {
+  background-color: var(--black);
+  padding: 16px;
+  margin: 8px;
+  border-radius: 12px;
 }

@@ -24,6 +24,9 @@ const NavigationBar = () => {
             <Nav.Link className="nav-text" href="#portfolio">
               Portfolio
             </Nav.Link>
+            <Nav.Link className="nav-text" href="#experience">
+              Experience
+            </Nav.Link>
             <Nav.Link className="nav-text" href="#contact">
               Contact
             </Nav.Link>

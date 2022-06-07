@@ -14,14 +14,14 @@ const About = () => {
           <Image src={ImageAbout} width={340} />
         </Col>
         <Col lg={7}>
-          <div className="about-name">
+          <div className="button-name">
             <span>WHO I AM</span>
           </div>
           <div className="mt-2">
             <span className="fs-2 fw-bold">About Me</span>
           </div>
           <div className="mt-3">
-            <p className="about-description">
+            <p className="description">
               Hi! I’m Muzammil, and I’m a designer & developer who has passion
               for building clean web applications with intuitive functionality.
               I enjoy the process of turning ideas into reality using creative
@@ -32,7 +32,7 @@ const About = () => {
               management.
             </p>
           </div>
-          <div className="button about-button mt-4">Hire Me</div>
+          <div className="button c-button mt-4">Hire Me</div>
         </Col>
       </Row>
     </Container>

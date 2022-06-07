@@ -18,11 +18,13 @@
   background-color: white;
   border-radius: 100%;
   border: 2px solid white;
+  z-index: 10;
 }
 
 .h-image:hover {
   transform: scale(1.05);
   background-color: rgba(190, 190, 190, 0.225);
+  z-index: 10;
 }
 
 .hero-medsos {
@@ -32,6 +34,7 @@
   border-radius: 100%;
   cursor: pointer;
   transition: transform 0.3s;
+  z-index: 8;
 }
 
 .hero-medsos:hover:nth-child(1) {
@@ -60,4 +63,21 @@
 .hero-medsos:hover:nth-child(4) {
   background-color: #25d366;
   transform: scale(1.2);
+}
+
+.about-name > span {
+  padding: 8px 16px;
+  background-color: #c8c8c848;
+  border-radius: 34px;
+  color: var(--red);
+  font-weight: 600;
+}
+
+.about-description {
+  text-align: justify;
+  color: rgb(86, 86, 86);
+}
+
+.about-button {
+  width: fit-content;
 }

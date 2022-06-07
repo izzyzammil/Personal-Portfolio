@@ -4,7 +4,7 @@
 }
 
 .App {
-  padding: 0.5rem 3.5rem;
+  /* padding: 0.5rem 0rem; */
   overflow: hidden;
   color: var(--black);
 }
@@ -14,7 +14,8 @@
   border: none;
   color: white;
   font-size: 16px;
-  padding: 11px 26px 11px 26px;
+  font-weight: bold;
+  padding: 10px 26px 10px 26px;
   background: var(--red);
 }
 

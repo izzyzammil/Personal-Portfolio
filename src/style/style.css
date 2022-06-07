@@ -1,0 +1,63 @@
+.nav-link:hover {
+  color: var(--red) !important;
+}
+
+.nav-text {
+  color: var(--black) !important;
+}
+
+.hero-bg {
+  padding: 34px 0;
+  background-color: var(--black);
+  color: white;
+}
+
+.h-image {
+  transition: transform 0.3s;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 100%;
+  border: 2px solid white;
+}
+
+.h-image:hover {
+  transform: scale(1.05);
+  background-color: rgba(190, 190, 190, 0.225);
+}
+
+.hero-medsos {
+  background-color: white;
+  padding: 6px;
+  margin: 32px 8px 0px 8px;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.hero-medsos:hover:nth-child(1) {
+  background-color: #171515;
+  transform: scale(1.2);
+}
+
+.hero-medsos:hover:nth-child(2) {
+  background-color: #0072b1;
+  transform: scale(1.2);
+}
+
+.hero-medsos:hover:nth-child(3) {
+  background: linear-gradient(
+    45deg,
+    #405de6,
+    #5851db,
+    #833ab4,
+    #c13584,
+    #e1306c,
+    #fd1d1d
+  );
+  transform: scale(1.2);
+}
+
+.hero-medsos:hover:nth-child(4) {
+  background-color: #25d366;
+  transform: scale(1.2);
+}

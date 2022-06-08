@@ -1,11 +1,18 @@
 import React from "react";
-import { Col, Container, Image, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 
-import HTML from "@iconscout/react-unicons/icons/uil-html5-alt";
-import CSS from "@iconscout/react-unicons/icons/uil-css3-simple";
-import JavascriptJS from "@iconscout/react-unicons/icons/uil-java-script";
-import Github from "@iconscout/react-unicons/icons/uil-github";
-import ReactJS from "@iconscout/react-unicons/icons/uil-react";
+import {
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiReact,
+  SiBootstrap,
+  SiFigma,
+  SiWordpress,
+  SiGithub,
+  SiAdobephotoshop,
+  SiBlender,
+} from "react-icons/si";
 
 const Skills = () => {
   return (
@@ -16,7 +23,7 @@ const Skills = () => {
             <span>MY SKILLS</span>
           </div>
           <div className="mt-2">
-            <span className="fs-2 fw-bold">
+            <span className="fs-2 fw-bolder">
               What My Programming <br /> Skills Included?
             </span>
           </div>
@@ -33,45 +40,45 @@ const Skills = () => {
         <Col>
           <div className="d-flex justify-content-end">
             <div className="skill-icon">
-              <HTML size={48} color="white" />
+              <SiHtml5 size={48} color="white" />
             </div>
 
             <div className="skill-icon">
-              <CSS size={48} color="white" />
+              <SiCss3 size={48} color="white" />
             </div>
+
             <div className="skill-icon">
-              <JavascriptJS size={48} color="white" />
+              <SiJavascript size={48} color="white" />
             </div>
+
             <div className="skill-icon">
-              <ReactJS size={48} color="white" />
+              <SiBootstrap size={48} color="white" />
             </div>
+
             <div className="skill-icon">
-              <Github size={48} color="white" />
-            </div>
-            <div className="skill-icon">
-              <JavascriptJS size={48} color="white" />
+              <SiReact size={48} color="white" />
             </div>
           </div>
 
           <div className="d-flex justify-content-end">
-            <div className="skill-icon">
-              <HTML size={48} color="white" />
+            <div className="skill-icon2">
+              <SiFigma size={48} color="white" />
             </div>
 
-            <div className="skill-icon">
-              <CSS size={48} color="white" />
+            <div className="skill-icon2">
+              <SiWordpress size={48} color="white" />
             </div>
-            <div className="skill-icon">
-              <JavascriptJS size={48} color="white" />
+
+            <div className="skill-icon2">
+              <SiGithub size={48} color="white" />
             </div>
-            <div className="skill-icon">
-              <ReactJS size={48} color="white" />
+
+            <div className="skill-icon2">
+              <SiAdobephotoshop size={49} color="white" />
             </div>
-            <div className="skill-icon">
-              <Github size={48} color="white" />
-            </div>
-            <div className="skill-icon">
-              <JavascriptJS size={48} color="white" />
+
+            <div className="skill-icon2">
+              <SiBlender size={48} color="white" />
             </div>
           </div>
         </Col>

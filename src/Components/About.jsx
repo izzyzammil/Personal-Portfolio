@@ -18,7 +18,7 @@ const About = () => {
             <span>WHO I AM</span>
           </div>
           <div className="mt-2">
-            <span className="fs-2 fw-bold">About Me</span>
+            <span className="fs-2 fw-bolder">About Me</span>
           </div>
           <div className="mt-3">
             <p className="description">

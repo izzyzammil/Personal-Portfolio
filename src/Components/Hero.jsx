@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, Image, Row } from "react-bootstrap";
+import { Container, Image } from "react-bootstrap";
 import ImageHero from "../assets/image/Muzammil.png";
 import Abstract from "../assets/image/abstract.png";
 import Github from "@iconscout/react-unicons/icons/uil-github";

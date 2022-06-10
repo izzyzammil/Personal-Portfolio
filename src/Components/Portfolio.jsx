@@ -10,13 +10,14 @@ import PortfolioImage6 from "../assets/image/Thumbnail-Website-CCINC.jpg";
 
 const Portfolio = () => {
   const dataCard = [
-    { id: 1, image: PortfolioImage1 },
-    { id: 2, image: PortfolioImage2 },
-    { id: 3, image: PortfolioImage3 },
-    { id: 4, image: PortfolioImage4 },
-    { id: 5, image: PortfolioImage5 },
-    { id: 6, image: PortfolioImage6 },
+    { id: 1, image: PortfolioImage1, category: "mobile" },
+    { id: 2, image: PortfolioImage2, category: "dekstop" },
+    { id: 3, image: PortfolioImage3, category: "mobile" },
+    { id: 4, image: PortfolioImage4, category: "website" },
+    { id: 5, image: PortfolioImage5, category: "mobile" },
+    { id: 6, image: PortfolioImage6, category: "website" },
   ];
+
   return (
     <Container className="py-5">
       <div className="d-flex align-items-center flex-column">
@@ -97,7 +98,7 @@ const Portfolio = () => {
           >
             <Row xs={1} md={2} lg={3} className="g-4">
               {dataCard.map((item, idx) => (
-                <Col>
+                <Col key={idx}>
                   <Card>
                     <Card.Img variant="top" src={item.image} />
                   </Card>
@@ -112,17 +113,15 @@ const Portfolio = () => {
             aria-labelledby="pills-website-tab"
           >
             <Row xs={1} md={2} lg={3} className="g-4">
-              <Col>
-                <Card>
-                  <Card.Img variant="top" src={PortfolioImage4} />
-                </Card>
-              </Col>
-
-              <Col>
-                <Card>
-                  <Card.Img variant="top" src={PortfolioImage6} />
-                </Card>
-              </Col>
+              {dataCard
+                .filter((data) => data.category == "website")
+                .map((item, idx) => (
+                  <Col key={idx}>
+                    <Card>
+                      <Card.Img variant="top" src={item.image} />
+                    </Card>
+                  </Col>
+                ))}
             </Row>
           </div>
           <div
@@ -132,23 +131,15 @@ const Portfolio = () => {
             aria-labelledby="pills-mobile-tab"
           >
             <Row xs={1} md={2} lg={3} className="g-4">
-              <Col>
-                <Card>
-                  <Card.Img variant="top" src={PortfolioImage1} />
-                </Card>
-              </Col>
-
-              <Col>
-                <Card>
-                  <Card.Img variant="top" src={PortfolioImage3} />
-                </Card>
-              </Col>
-
-              <Col>
-                <Card>
-                  <Card.Img variant="top" src={PortfolioImage5} />
-                </Card>
-              </Col>
+              {dataCard
+                .filter((data) => data.category == "mobile")
+                .map((item, idx) => (
+                  <Col key={idx}>
+                    <Card>
+                      <Card.Img variant="top" src={item.image} />
+                    </Card>
+                  </Col>
+                ))}
             </Row>
           </div>
           <div
@@ -158,11 +149,15 @@ const Portfolio = () => {
             aria-labelledby="pills-dekstop-tab"
           >
             <Row xs={1} md={2} lg={3} className="g-4">
-              <Col>
-                <Card>
-                  <Card.Img variant="top" src={PortfolioImage2} />
-                </Card>
-              </Col>
+              {dataCard
+                .filter((data) => data.category == "dekstop")
+                .map((item, idx) => (
+                  <Col key={idx}>
+                    <Card>
+                      <Card.Img variant="top" src={item.image} />
+                    </Card>
+                  </Col>
+                ))}
             </Row>
           </div>
         </div>

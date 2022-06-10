@@ -1,9 +1,22 @@
 import React, { useState } from "react";
-import { Container, Tab, Tabs } from "react-bootstrap";
+import { Card, Col, Container, Image, Row } from "react-bootstrap";
+
+import PortfolioImage1 from "../assets/image/Thumbnail-FoodMarket.jpg";
+import PortfolioImage2 from "../assets/image/Thumbnail-Mimako.jpg";
+import PortfolioImage3 from "../assets/image/Thumbnail-SiniNonton.jpg";
+import PortfolioImage4 from "../assets/image/Thumbnail-Website-Staycation.jpg";
+import PortfolioImage5 from "../assets/image/Thumbnail-Staycation.jpg";
+import PortfolioImage6 from "../assets/image/Thumbnail-Website-CCINC.jpg";
 
 const Portfolio = () => {
-  const [key, setKey] = useState("website");
-
+  const dataCard = [
+    { id: 1, image: PortfolioImage1 },
+    { id: 2, image: PortfolioImage2 },
+    { id: 3, image: PortfolioImage3 },
+    { id: 4, image: PortfolioImage4 },
+    { id: 5, image: PortfolioImage5 },
+    { id: 6, image: PortfolioImage6 },
+  ];
   return (
     <Container className="py-5">
       <div className="d-flex align-items-center flex-column">
@@ -14,116 +27,143 @@ const Portfolio = () => {
           <span className="fs-2 fw-bolder">Featured Projects</span>
         </div>
       </div>
-      {/* <div className="d-flex align-items-center flex-column">
-        <Tabs
-          id="controlled-tab-example"
-          activeKey={key}
-          onSelect={(k) => setKey(k)}
-          className="mb-3"
-          variant="pills"
-        >
-          <Tab eventKey="website" title="Website">
-            <div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum iste
-              assumenda odit possimus sequi consequuntur deleniti mollitia.
-              Obcaecati similique ullam, magni provident distinctio quae error
-              autem consequuntur at repudiandae dolore?
-            </div>
-          </Tab>
-          <Tab eventKey="mobile" title="Mobile Apps">
-            <div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum iste
-              assumenda odit possimus sequi consequuntur deleniti mollitia.
-              Obcaecati similique ullam, magni provident distinctio quae error
-              autem consequuntur at repudiandae dolore?
-            </div>
-          </Tab>
-          <Tab eventKey="dekstop" title="Dekstop">
-            <div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum iste
-              assumenda odit possimus sequi consequuntur deleniti mollitia.
-              Obcaecati similique ullam, magni provident distinctio quae error
-              autem consequuntur at repudiandae dolore?
-            </div>
-          </Tab>
-        </Tabs>
-      </div> */}
 
-      <div className="d-flex align-items-center flex-column">
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-          <li class="nav-item" role="presentation">
+      <div className="d-flex align-items-center flex-column mt-4">
+        <ul className="nav nav-pills mb-4" id="pills-tab" role="tablist">
+          <li className="nav-item" role="presentation">
             <button
-              class="nav-link active"
-              id="pills-home-tab"
+              className="nav-link active"
+              id="pills-all-tab"
               data-bs-toggle="pill"
-              data-bs-target="#pills-home"
+              data-bs-target="#pills-all"
               type="button"
               role="tab"
-              aria-controls="pills-home"
+              aria-controls="pills-all"
               aria-selected="true"
             >
-              Home
+              All
             </button>
           </li>
-          <li class="nav-item" role="presentation">
+          <li className="nav-item" role="presentation">
             <button
-              class="nav-link"
-              id="pills-profile-tab"
+              className="nav-link"
+              id="pills-website-tab"
               data-bs-toggle="pill"
-              data-bs-target="#pills-profile"
+              data-bs-target="#pills-website"
               type="button"
               role="tab"
-              aria-controls="pills-profile"
+              aria-controls="pills-website"
               aria-selected="false"
             >
-              Profile
+              Website
             </button>
           </li>
-          <li class="nav-item" role="presentation">
+          <li className="nav-item" role="presentation">
             <button
-              class="nav-link"
-              id="pills-contact-tab"
+              className="nav-link"
+              id="pills-mobile-tab"
               data-bs-toggle="pill"
-              data-bs-target="#pills-contact"
+              data-bs-target="#pills-mobile"
               type="button"
               role="tab"
-              aria-controls="pills-contact"
+              aria-controls="pills-mobile"
               aria-selected="false"
             >
-              Contact
+              Mobile Apps
+            </button>
+          </li>
+          <li className="nav-item" role="presentation">
+            <button
+              className="nav-link"
+              id="pills-dekstop-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-dekstop"
+              type="button"
+              role="tab"
+              aria-controls="pills-dekstop"
+              aria-selected="false"
+            >
+              Dekstop
             </button>
           </li>
         </ul>
-        <div class="tab-content" id="pills-tabContent">
+
+        <div className="tab-content" id="pills-tabContent">
           <div
-            class="tab-pane fade show active"
-            id="pills-home"
+            className="tab-pane fade show active "
+            id="pills-all"
             role="tabpanel"
-            aria-labelledby="pills-home-tab"
-            style={{ textAlign: "justify" }}
+            aria-labelledby="pills-all-tab"
           >
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam sunt,
-            at impedit eius quae, saepe sequi cumque expedita aut corrupti ut
-            earum asperiores dolorem mollitia est, in ipsam dolorum assumenda
-            molestias rerum odit enim? Doloribus rem, reprehenderit quibusdam
-            nulla, delectus nisi repellat hic architecto quia quasi nihil, enim
-            impedit aspernatur?
+            <Row xs={1} md={2} lg={3} className="g-4">
+              {dataCard.map((item, idx) => (
+                <Col>
+                  <Card>
+                    <Card.Img variant="top" src={item.image} />
+                  </Card>
+                </Col>
+              ))}
+            </Row>
           </div>
           <div
-            class="tab-pane fade"
-            id="pills-profile"
+            className="tab-pane fade"
+            id="pills-website"
             role="tabpanel"
-            aria-labelledby="pills-profile-tab"
+            aria-labelledby="pills-website-tab"
           >
-            2
+            <Row xs={1} md={2} lg={3} className="g-4">
+              <Col>
+                <Card>
+                  <Card.Img variant="top" src={PortfolioImage4} />
+                </Card>
+              </Col>
+
+              <Col>
+                <Card>
+                  <Card.Img variant="top" src={PortfolioImage6} />
+                </Card>
+              </Col>
+            </Row>
           </div>
           <div
-            class="tab-pane fade"
-            id="pills-contact"
+            className="tab-pane fade"
+            id="pills-mobile"
             role="tabpanel"
-            aria-labelledby="pills-contact-tab"
+            aria-labelledby="pills-mobile-tab"
           >
-            3
+            <Row xs={1} md={2} lg={3} className="g-4">
+              <Col>
+                <Card>
+                  <Card.Img variant="top" src={PortfolioImage1} />
+                </Card>
+              </Col>
+
+              <Col>
+                <Card>
+                  <Card.Img variant="top" src={PortfolioImage3} />
+                </Card>
+              </Col>
+
+              <Col>
+                <Card>
+                  <Card.Img variant="top" src={PortfolioImage5} />
+                </Card>
+              </Col>
+            </Row>
+          </div>
+          <div
+            className="tab-pane fade"
+            id="pills-dekstop"
+            role="tabpanel"
+            aria-labelledby="pills-dekstop-tab"
+          >
+            <Row xs={1} md={2} lg={3} className="g-4">
+              <Col>
+                <Card>
+                  <Card.Img variant="top" src={PortfolioImage2} />
+                </Card>
+              </Col>
+            </Row>
           </div>
         </div>
       </div>

@@ -140,6 +140,10 @@
   color: var(--black) !important;
 } */
 
+.nav-pills .nav-item {
+  margin: 0 12px;
+}
+
 .nav-pills .nav-item .nav-link {
   color: var(--black);
   border-radius: 20px;

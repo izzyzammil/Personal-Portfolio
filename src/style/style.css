@@ -158,3 +158,54 @@
 .nav-pills .nav-item .nav-link.active:hover {
   color: var(--black) !important;
 }
+
+.single-content {
+  position: relative;
+  transition: 0.3s;
+  cursor: pointer;
+  border-radius: 10px !important;
+}
+
+.image-content {
+  border-radius: 10px !important;
+}
+
+.single-content .text-content,
+.single-content::after {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+}
+
+.single-content::after {
+  content: "";
+  display: block;
+  background: var(--red);
+  top: 10px;
+  bottom: 10px;
+  opacity: 0;
+  transform: rotate3d(-1, 1, 0, 100deg);
+  transition: 0.4s;
+  border-radius: 8px;
+}
+
+.single-content:hover::after {
+  opacity: 0.9;
+  transform: rotate3d(0, 0, 0, 0deg);
+}
+
+.text-content {
+  top: 45%;
+  opacity: 0;
+  z-index: 1;
+  transform: translate(10%, -30%);
+  transition: 0.3s;
+  text-align: center;
+  color: white;
+}
+
+.single-content:hover .text-content {
+  opacity: 1;
+  transform: translate(0, -50%);
+  transition-delay: 0.2s;
+}

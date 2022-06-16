@@ -1,5 +1,6 @@
 import "./App.css";
 import About from "./Components/About";
+import Client from "./Components/Client";
 import Hero from "./Components/Hero";
 import NavigationBar from "./Components/NavigationBar";
 import Portfolio from "./Components/Portfolio";
@@ -14,6 +15,7 @@ function App() {
         <About />
         <Skills />
         <Portfolio />
+        <Client />
       </div>
     </div>
   );

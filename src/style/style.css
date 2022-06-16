@@ -215,3 +215,12 @@
   border-radius: 10px;
   margin: 8px 0;
 }
+
+.client-image {
+  margin: 0 12px;
+  transition: transform 0.3s;
+}
+
+.client-image:hover {
+  transform: translateY(-12px);
+}

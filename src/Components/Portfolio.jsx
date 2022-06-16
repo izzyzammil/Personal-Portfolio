@@ -1,92 +1,35 @@
 import React, { useState } from "react";
 import { Card, Col, Container, Image, Modal, Row } from "react-bootstrap";
-
-import PortfolioImage1 from "../assets/image/Thumbnail-FoodMarket.jpg";
-import PortfolioImage2 from "../assets/image/Thumbnail-Mimako.jpg";
-import PortfolioImage3 from "../assets/image/Thumbnail-SiniNonton.jpg";
-import PortfolioImage4 from "../assets/image/Thumbnail-Website-Staycation.jpg";
-import PortfolioImage5 from "../assets/image/Thumbnail-Staycation.jpg";
-import PortfolioImage6 from "../assets/image/Thumbnail-Website-CCINC.jpg";
-import FDImage1 from "../assets/image/FD-image-1.png";
-import FDImage2 from "../assets/image/FD-image-2.png";
-import FDImage3 from "../assets/image/FD-image-3.png";
+import { dataCard } from "./DataCard";
 
 const Portfolio = () => {
-  const dataCard = [
-    {
-      id: 1,
-      image: PortfolioImage1,
-      category: "mobile",
-      title: "Food Market",
-      desc: "Lorem ipsum dolor sit amet consectetur.",
-      imageModal: [FDImage1, FDImage2, FDImage3],
-    },
-    {
-      id: 2,
-      image: PortfolioImage2,
-      category: "dekstop",
-      title: "Mimako",
-      desc: "Lorem ipsum dolor sit amet consectetur.",
-      // imageModal: [{ img: FDImage1 }, { img: FDImage2 }, { img: FDImage3 }],
-      imageModal: [FDImage1, FDImage2, FDImage3],
-    },
-    {
-      id: 3,
-      image: PortfolioImage3,
-      category: "mobile",
-      title: "Sini Nonton",
-      desc: "Lorem ipsum dolor sit amet consectetur.",
-      imageModal: [FDImage1, FDImage2, FDImage3],
-    },
-    {
-      id: 4,
-      image: PortfolioImage4,
-      category: "website",
-      title: "Staycation Web",
-      desc: "Lorem ipsum dolor sit amet consectetur.",
-      imageModal: [FDImage1, FDImage2, FDImage3],
-    },
-    {
-      id: 5,
-      image: PortfolioImage5,
-      category: "mobile",
-      title: "Staycation Mobile App",
-      desc: "Lorem ipsum dolor sit amet consectetur.",
-      imageModal: [FDImage1, FDImage2, FDImage3],
-    },
-    {
-      id: 6,
-      image: PortfolioImage6,
-      category: "website",
-      title: "Creative Colors.Inc Web",
-      desc: "Lorem ipsum dolor sit amet consectetur.",
-      imageModal: [FDImage1, FDImage2, FDImage3],
-    },
-  ];
-
   const [show, setShow] = useState(false);
   const [tempdata, setTempdata] = useState([]);
 
   const handleClose = () => setShow(false);
-  const handleShow = (img, title, desc, imageModal) => {
-    let tempData = [img, title, desc, imageModal];
-    // console.log(imageModal);
+  const handleShow = (img, title, desc, id) => {
+    let tempData = [img, title, desc, id];
 
     setTempdata(() => [...tempData]);
 
     return setShow(true);
   };
 
-  const ModalImage = ({ title, desc }) => {
+  const ModalImage = ({ title, desc, id }) => {
+    const data = dataCard.filter((item) => item.id == id);
     return (
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} scrollable>
         <Modal.Header closeButton>
           <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {dataCard.map((item, index) => (
-            <Image src={item.imageModal[index]} className="w-100" />
-          ))}
+          {data.map((item) =>
+            item.imageModal.map((item) => (
+              <div className="d-flex justify-content-center">
+                <Image src={item} className="w-75 port-image" />
+              </div>
+            ))
+          )}
           <p>{desc}</p>
         </Modal.Body>
       </Modal>
@@ -186,12 +129,7 @@ const Portfolio = () => {
                   <Card
                     className="single-content"
                     onClick={() =>
-                      handleShow(
-                        item.image,
-                        item.title,
-                        item.desc,
-                        item.imageModal
-                      )
+                      handleShow(item.image, item.title, item.desc, item.id)
                     }
                   >
                     <Card.Img src={item.image} className="image-content" />
@@ -205,10 +143,9 @@ const Portfolio = () => {
             </Row>
 
             <ModalImage
-              img={tempdata[0]}
               title={tempdata[1]}
               desc={tempdata[2]}
-              imageModal={tempdata[3]}
+              id={tempdata[3]}
             />
           </div>
           <div

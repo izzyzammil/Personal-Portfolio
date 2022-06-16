@@ -209,3 +209,9 @@
   transform: translate(0, -50%);
   transition-delay: 0.2s;
 }
+
+.port-image {
+  border: 2px solid var(--black);
+  border-radius: 10px;
+  margin: 8px 0;
+}

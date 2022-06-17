@@ -1,6 +1,8 @@
 import "./App.css";
 import About from "./Components/About";
 import Client from "./Components/Client";
+import Contact from "./Components/Contact";
+import Footer from "./Components/Footer";
 import Hero from "./Components/Hero";
 import NavigationBar from "./Components/NavigationBar";
 import Portfolio from "./Components/Portfolio";
@@ -16,6 +18,8 @@ function App() {
         <Skills />
         <Portfolio />
         <Client />
+        <Contact />
+        <Footer />
       </div>
     </div>
   );

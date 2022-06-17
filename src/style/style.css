@@ -242,6 +242,11 @@
 }
 
 .footer {
-  height: 20vh;
+  padding: 24px 0;
   background-color: var(--black);
+}
+
+.f-text {
+  color: white;
+  text-align: center;
 }

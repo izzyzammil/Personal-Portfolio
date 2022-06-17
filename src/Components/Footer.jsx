@@ -2,9 +2,12 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="d-flex flex-column align-items-center footer">
-      <h3 className="fw-bold">Muzammil</h3>
-      <h5>Front End</h5>
+    <div className="footer">
+      <h3 className="fw-bold f-text">Muzammil</h3>
+      <h6 className="f-text">Front End Web and Mobile, Wordpress Developer</h6>
+      <h6 className="f-text mt-4 text-muted">
+        &copy; 2022 Muzammil. All rights reserved.
+      </h6>
     </div>
   );
 };

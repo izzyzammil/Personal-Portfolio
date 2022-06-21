@@ -18,18 +18,20 @@ const Portfolio = () => {
   const ModalImage = ({ title, desc, id }) => {
     const data = dataCard.filter((item) => item.id == id);
     return (
-      <Modal show={show} onHide={handleClose} scrollable>
+      <Modal show={show} onHide={handleClose} scrollable size="lg">
         <Modal.Header closeButton>
           <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {data.map((item) =>
-            item.imageModal.map((item) => (
-              <div className="d-flex justify-content-center">
-                <Image src={item} className="w-75 port-image" />
-              </div>
-            ))
-          )}
+          <Row>
+            {data.map((item) =>
+              item.imageModal.map((item, index) => (
+                <Col sm={6} lg={4} key={index}>
+                  <Image src={item} className="w-100 port-image" />
+                </Col>
+              ))
+            )}
+          </Row>
           <p>{desc}</p>
         </Modal.Body>
       </Modal>
@@ -48,73 +50,80 @@ const Portfolio = () => {
       </div>
 
       <div className="d-flex align-items-center flex-column mt-4">
-        {window.screen.availWidth < 576 ? (
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-        ) : (
-          <ul className="nav nav-pills mb-4" id="pills-tab" role="tablist">
-            <li className="nav-item" role="presentation">
-              <button
-                className="nav-link active"
-                id="pills-all-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#pills-all"
-                type="button"
-                role="tab"
-                aria-controls="pills-all"
-                aria-selected="true"
-              >
-                All
-              </button>
-            </li>
-            <li className="nav-item" role="presentation">
-              <button
-                className="nav-link"
-                id="pills-website-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#pills-website"
-                type="button"
-                role="tab"
-                aria-controls="pills-website"
-                aria-selected="false"
-              >
-                Website
-              </button>
-            </li>
-            <li className="nav-item" role="presentation">
-              <button
-                className="nav-link"
-                id="pills-mobile-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#pills-mobile"
-                type="button"
-                role="tab"
-                aria-controls="pills-mobile"
-                aria-selected="false"
-              >
-                Mobile Apps
-              </button>
-            </li>
-            <li className="nav-item" role="presentation">
-              <button
-                className="nav-link"
-                id="pills-dekstop-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#pills-dekstop"
-                type="button"
-                role="tab"
-                aria-controls="pills-dekstop"
-                aria-selected="false"
-              >
-                Dekstop
-              </button>
-            </li>
-          </ul>
-        )}
+        <select
+          className="form-select d-md-none mb-4"
+          aria-label="Default select example"
+        >
+          <option defaultValue="Open this select menu">
+            Open this select menu
+          </option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+
+        <ul
+          className="nav nav-pills mb-4 d-none d-md-flex"
+          id="pills-tab"
+          role="tablist"
+        >
+          <li className="nav-item" role="presentation">
+            <button
+              className="nav-link active"
+              id="pills-all-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-all"
+              type="button"
+              role="tab"
+              aria-controls="pills-all"
+              aria-selected="true"
+            >
+              All
+            </button>
+          </li>
+          <li className="nav-item" role="presentation">
+            <button
+              className="nav-link"
+              id="pills-website-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-website"
+              type="button"
+              role="tab"
+              aria-controls="pills-website"
+              aria-selected="false"
+            >
+              Website
+            </button>
+          </li>
+          <li className="nav-item" role="presentation">
+            <button
+              className="nav-link"
+              id="pills-mobile-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-mobile"
+              type="button"
+              role="tab"
+              aria-controls="pills-mobile"
+              aria-selected="false"
+            >
+              Mobile Apps
+            </button>
+          </li>
+          <li className="nav-item" role="presentation">
+            <button
+              className="nav-link"
+              id="pills-dekstop-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-dekstop"
+              type="button"
+              role="tab"
+              aria-controls="pills-dekstop"
+              aria-selected="false"
+            >
+              Dekstop
+            </button>
+          </li>
+        </ul>
 
         <div className="tab-content" id="pills-tabContent">
           <div

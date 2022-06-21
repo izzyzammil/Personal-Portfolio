@@ -4,7 +4,7 @@ import "../style/style.css";
 
 const NavigationBar = () => {
   return (
-    <Navbar expand="lg shadow-sm rounded">
+    <Navbar expand="md shadow-sm rounded">
       <Container>
         <Navbar.Brand className="nav-text fw-bold fs-3" href="#home">
           Zammil
@@ -32,7 +32,7 @@ const NavigationBar = () => {
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        <div className="button">Hire Me</div>
+        <div className="button d-none d-md-flex">Hire Me</div>
       </Container>
     </Navbar>
   );

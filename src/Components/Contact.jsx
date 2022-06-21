@@ -1,7 +1,41 @@
-import React from "react";
-import { Col, Container, Form, Row } from "react-bootstrap";
+import React, { useRef, useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
+  const form = useRef();
+
+  const [done, setDone] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_o74jbsc",
+        "template_cdxqeyx",
+        form.current,
+        "fJcStwEsTw62oe2T5"
+      )
+      .then(
+        (result) => {
+          setDone(true);
+          setEmail("");
+          setName("");
+          setMessage("");
+          setTimeout(() => {
+            setDone(false);
+          }, 2000);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   return (
     <Container className="py-5">
       <Row className="d-flex align-items-center">
@@ -21,36 +55,34 @@ const Contact = () => {
           </div>
         </Col>
 
-        <Col>
-          <div className="me-lg-5 ms-lg-5">
-            <form className="c-form">
-              {/* <label htmlFor="name" className="form-label">
-                Name
-              </label> */}
+        <Col xs={12} md={6}>
+          <div className="me-xl-5 ms-xl-5">
+            <form className="c-form" ref={form} onSubmit={sendEmail}>
+              {done && <span className="c-success">Thank for Contact me</span>}
               <input
                 type="text"
-                name="name"
+                name="user-name"
                 id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 placeholder="Enter your name"
                 className="contact-user"
               />
-              {/* <label htmlFor="email" className="form-label">
-                Email
-              </label> */}
               <input
                 type="email"
-                name="email"
+                name="user-email"
                 id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter a valid email address"
                 className="contact-user"
               />
-              {/* <label htmlFor="message" className="form-label">
-                Message
-              </label> */}
               <textarea
                 name="message"
                 id="message"
-                rows={3}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                rows={4}
                 placeholder="Enter your message"
                 className="contact-user"
               />
@@ -60,12 +92,6 @@ const Contact = () => {
                 className="button c-button mt-2"
               />
             </form>
-            {/* <input
-                type="submit"
-                value="Send Message"
-                className="button button c-button mt-4"
-              /> */}
-            {/* <span>{done && "Thanks fot Contact Me"}</span> */}
           </div>
         </Col>
       </Row>

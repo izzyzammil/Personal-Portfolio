@@ -29,56 +29,52 @@ const Skills = () => {
           </div>
           <div className="mt-3">
             <p className="description">
-              I develop simple, intuitive and responsive user interface that
-              helps users get things done with less effort and time with those
-              technologies.
+              I develop responsive web and mobile interface that helps users get
+              things done with less effort and time with those technologies.
             </p>
           </div>
-          <div className="button c-button mt-4">Hire Me</div>
         </Col>
 
-        <Col>
-          <div className="d-flex justify-content-end">
+        <Col xl={5} lg={6}>
+          <div className="d-flex justify-content-lg-end justify-content-sm-center flex-wrap justify-content-center mt-3 mt-lg-0">
             <div className="skill-icon">
-              <SiHtml5 size={48} color="white" />
-            </div>
-
-            <div className="skill-icon">
-              <SiCss3 size={48} color="white" />
+              <SiHtml5 size={40} color="white" />
             </div>
 
             <div className="skill-icon">
-              <SiJavascript size={48} color="white" />
+              <SiCss3 size={40} color="white" />
             </div>
 
             <div className="skill-icon">
-              <SiBootstrap size={48} color="white" />
+              <SiJavascript size={40} color="white" />
             </div>
 
             <div className="skill-icon">
-              <SiReact size={48} color="white" />
-            </div>
-          </div>
-
-          <div className="d-flex justify-content-end">
-            <div className="skill-icon2">
-              <SiFigma size={48} color="white" />
+              <SiBootstrap size={40} color="white" />
             </div>
 
-            <div className="skill-icon2">
-              <SiWordpress size={48} color="white" />
+            <div className="skill-icon">
+              <SiReact size={40} color="white" />
             </div>
 
-            <div className="skill-icon2">
-              <SiGithub size={48} color="white" />
+            <div className="skill-icon">
+              <SiFigma size={40} color="white" />
             </div>
 
-            <div className="skill-icon2">
-              <SiAdobephotoshop size={49} color="white" />
+            <div className="skill-icon">
+              <SiWordpress size={40} color="white" />
             </div>
 
-            <div className="skill-icon2">
-              <SiBlender size={48} color="white" />
+            <div className="skill-icon">
+              <SiGithub size={40} color="white" />
+            </div>
+
+            <div className="skill-icon">
+              <SiAdobephotoshop size={40} color="white" />
+            </div>
+
+            <div className="skill-icon">
+              <SiBlender size={40} color="white" />
             </div>
           </div>
         </Col>

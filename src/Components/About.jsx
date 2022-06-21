@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import ImageAbout from "../assets/image/Zammil-about3.png";
+import Resume from "./my-resume.pdf";
 
 const About = () => {
   return (
@@ -22,17 +23,50 @@ const About = () => {
           </div>
           <div className="mt-3">
             <p className="description">
-              Hi! I’m Muzammil, and I’m a designer & developer who has passion
-              for building clean web applications with intuitive functionality.
-              I enjoy the process of turning ideas into reality using creative
-              solutions. I’m always curious about learning new skills, tools,
-              and concepts. In addition to working on various solo full stack
-              projects, I have worked with creative teams, which involves daily
-              stand-ups and communications, source control, and project
-              management.
+              Hi! I’m Muzammil from Madura, East Java, Indonesia, and I’m a
+              Frontend Developer who has passion for building clean web and
+              mobile applications with intuitive functionality. I have more than
+              1 year experience in React Native and React JS. I enjoy the
+              process of turning ideas into reality using creative solutions.
+              I’m enthusiastic about learning new skills, concepts and tools. In
+              addition to working on solo projects, I have worked with creative
+              teams, which involves communications, and project management.
             </p>
           </div>
-          <div className="button c-button mt-4">Hire Me</div>
+          <div className="d-flex mt-4">
+            <div className="button c-button me-3">Hire Me</div>
+            <div
+              className="button c-button dropdown-toggle"
+              role="button"
+              id="dropdownMenuLink"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              My Resume
+            </div>
+
+            <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li>
+                <a className="dropdown-item" href={Resume} download>
+                  Resume (PDF)
+                </a>
+              </li>
+              <li>
+                <a
+                  className="dropdown-item"
+                  href="https://youtu.be/4qM7JdELRYg"
+                  target={"_blank"}
+                >
+                  Resume (Animasi)
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="#">
+                  Resume (Website)
+                </a>
+              </li>
+            </ul>
+          </div>
         </Col>
       </Row>
     </Container>

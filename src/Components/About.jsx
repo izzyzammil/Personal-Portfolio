@@ -2,10 +2,11 @@ import React from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import ImageAbout from "../assets/image/Zammil-about3.png";
 import Resume from "./my-resume.pdf";
+import { Link } from "react-scroll";
 
 const About = () => {
   return (
-    <Container className="py-5">
+    <Container className="py-5" id="about">
       <Row className="d-flex align-items-center">
         <Col
           lg={5}
@@ -34,7 +35,9 @@ const About = () => {
             </p>
           </div>
           <div className="d-flex mt-4">
-            <div className="button c-button me-3">Hire Me</div>
+            <Link spy={true} to="contact">
+              <div className="button c-button me-3">Hire Me</div>
+            </Link>
             <div
               className="button c-button dropdown-toggle"
               role="button"

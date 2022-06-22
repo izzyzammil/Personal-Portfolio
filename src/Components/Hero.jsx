@@ -9,11 +9,10 @@ import Whatsapp from "@iconscout/react-unicons/icons/uil-whatsapp";
 
 const Hero = () => {
   return (
-    <Container fluid className="hero-bg">
+    <Container fluid className="hero-bg" id="home">
       <div>
         <Image
           src={Abstract}
-          // className="abstract-image1"
           width={360}
           style={{
             position: "absolute",
@@ -26,7 +25,6 @@ const Hero = () => {
 
         <Image
           src={Abstract}
-          // className="abstract-image2"
           width={360}
           style={{ position: "absolute", right: 30, opacity: 0.5, zIndex: 1 }}
         />

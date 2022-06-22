@@ -5,7 +5,7 @@ import Client2 from "../assets/image/client-mimako.png";
 
 const Client = () => {
   return (
-    <Container className="py-5">
+    <Container className="py-5" id="client">
       <div className="d-flex align-items-center flex-column">
         <div className="button-name">
           <span>MY CLIENT</span>

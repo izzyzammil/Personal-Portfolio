@@ -37,7 +37,7 @@ const Contact = () => {
   };
 
   return (
-    <Container className="py-5">
+    <Container className="py-5" id="contact">
       <Row className="d-flex align-items-center">
         <Col>
           <div className="button-name">

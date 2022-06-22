@@ -16,7 +16,7 @@ import {
 
 const Skills = () => {
   return (
-    <Container className="py-5">
+    <Container className="py-5" id="skills">
       <Row className="d-flex align-items-center">
         <Col>
           <div className="button-name">

@@ -11,7 +11,9 @@ const Client = () => {
           <span>MY CLIENT</span>
         </div>
         <div className="mt-2">
-          <span className="fs-2 fw-bolder">Work for All these Client</span>
+          <h2 className="fs-2 fw-bolder text-center mt-2">
+            Work for All these Client
+          </h2>
         </div>
       </div>
 

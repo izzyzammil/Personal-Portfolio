@@ -1,10 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Image, Modal, Row } from "react-bootstrap";
 import { dataCard } from "./DataCard";
 
 const Portfolio = () => {
   const [show, setShow] = useState(false);
   const [tempdata, setTempdata] = useState([]);
+  const [option, setOption] = useState("All");
+  const [all, setAll] = useState(false);
+  const [website, setWebsite] = useState(false);
+  const [mobile, setMobile] = useState(false);
+  const [desktop, setDekstop] = useState(false);
+
+  useEffect(() => {
+    option === "All" ? setAll(true) : setAll(false);
+    option === "website" ? setWebsite(true) : setWebsite(false);
+    option === "mobile" ? setMobile(true) : setMobile(false);
+    option === "dekstop" ? setDekstop(true) : setDekstop(false);
+  }, [option]);
+
+  const onSelectOption = (e) => {
+    setOption(e.target.value);
+  };
 
   const handleClose = () => setShow(false);
   const handleShow = (img, title, desc, id) => {
@@ -13,6 +29,58 @@ const Portfolio = () => {
     setTempdata(() => [...tempData]);
 
     return setShow(true);
+  };
+
+  const PortfolioCard = ({ category }) => {
+    return (
+      <Row xs={1} md={2} lg={3} className="g-4">
+        {dataCard
+          .filter((data) => data.category == category)
+          .map((item, idx) => (
+            <Col key={idx}>
+              <Card
+                className="single-content"
+                onClick={() =>
+                  handleShow(item.image, item.title, item.desc, item.id)
+                }
+              >
+                <Card.Img src={item.image} className="image-content" />
+                <Card.Body className="text-content">
+                  <Card.Title style={{ fontSize: 18, fontWeight: "bold" }}>
+                    {item.title}
+                  </Card.Title>
+                  <Card.Text style={{ fontSize: 14 }}>{item.desc}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+      </Row>
+    );
+  };
+
+  const All = () => {
+    return (
+      <Row xs={1} md={2} lg={3} className="g-4">
+        {dataCard.map((item, idx) => (
+          <Col key={idx}>
+            <Card
+              className="single-content"
+              onClick={() =>
+                handleShow(item.image, item.title, item.desc, item.id)
+              }
+            >
+              <Card.Img src={item.image} className="image-content" />
+              <Card.Body className="text-content">
+                <Card.Title style={{ fontSize: 18, fontWeight: "bold" }}>
+                  {item.title}
+                </Card.Title>
+                <Card.Text style={{ fontSize: 14 }}>{item.desc}</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    );
   };
 
   const ModalImage = ({ title, desc, id }) => {
@@ -45,7 +113,7 @@ const Portfolio = () => {
           <span>MY PORTFOLIO</span>
         </div>
         <div className="mt-2">
-          <span className="fs-2 fw-bolder">Featured Projects</span>
+          <h2 className="fs-2 fw-bolder text-center mt-2">Featured Projects</h2>
         </div>
       </div>
 
@@ -53,13 +121,13 @@ const Portfolio = () => {
         <select
           className="form-select d-md-none mb-4"
           aria-label="Default select example"
+          value={option}
+          onChange={onSelectOption}
         >
-          <option defaultValue="Open this select menu">
-            Open this select menu
-          </option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option value="All">All</option>
+          <option value="website">Website</option>
+          <option value="mobile">Mobile Apps</option>
+          <option value="dekstop">Dekstop</option>
         </select>
 
         <ul
@@ -125,91 +193,53 @@ const Portfolio = () => {
           </li>
         </ul>
 
-        <div className="tab-content" id="pills-tabContent">
+        <div className="d-md-none">
+          {all && <All />}
+          {website && <PortfolioCard category="website" />}
+          {mobile && <PortfolioCard category="mobile" />}
+          {desktop && <PortfolioCard category="dekstop" />}
+        </div>
+
+        <div className="tab-content d-none d-md-flex" id="pills-tabContent">
           <div
             className="tab-pane fade show active "
             id="pills-all"
             role="tabpanel"
             aria-labelledby="pills-all-tab"
           >
-            <Row xs={1} md={2} lg={3} className="g-4">
-              {dataCard.map((item, idx) => (
-                <Col key={idx}>
-                  <Card
-                    className="single-content"
-                    onClick={() =>
-                      handleShow(item.image, item.title, item.desc, item.id)
-                    }
-                  >
-                    <Card.Img src={item.image} className="image-content" />
-                    <Card.Body className="text-content">
-                      <Card.Title className="fw-bold">{item.title}</Card.Title>
-                      <Card.Text>{item.desc}</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))}
-            </Row>
-
+            <All />
             <ModalImage
               title={tempdata[1]}
               desc={tempdata[2]}
               id={tempdata[3]}
             />
           </div>
+
           <div
             className="tab-pane fade"
             id="pills-website"
             role="tabpanel"
             aria-labelledby="pills-website-tab"
           >
-            <Row xs={1} md={2} lg={3} className="g-4">
-              {dataCard
-                .filter((data) => data.category == "website")
-                .map((item, idx) => (
-                  <Col key={idx}>
-                    <Card onClick={handleShow}>
-                      <Card.Img variant="top" src={item.image} />
-                    </Card>
-                  </Col>
-                ))}
-            </Row>
+            <PortfolioCard category="website" />
           </div>
+
           <div
             className="tab-pane fade"
             id="pills-mobile"
             role="tabpanel"
             aria-labelledby="pills-mobile-tab"
           >
-            <Row xs={1} md={2} lg={3} className="g-4">
-              {dataCard
-                .filter((data) => data.category == "mobile")
-                .map((item, idx) => (
-                  <Col key={idx}>
-                    <Card>
-                      <Card.Img variant="top" src={item.image} />
-                    </Card>
-                  </Col>
-                ))}
-            </Row>
+            <PortfolioCard category="mobile" />
           </div>
+
           <div
             className="tab-pane fade"
             id="pills-dekstop"
             role="tabpanel"
             aria-labelledby="pills-dekstop-tab"
           >
-            <Row xs={1} md={2} lg={3} className="g-4">
-              {dataCard
-                .filter((data) => data.category == "dekstop")
-                .map((item, idx) => (
-                  <Col key={idx}>
-                    <Card>
-                      <Card.Img variant="top" src={item.image} />
-                    </Card>
-                  </Col>
-                ))}
-            </Row>
+            <PortfolioCard category="dekstop" />
           </div>
         </div>
       </div>

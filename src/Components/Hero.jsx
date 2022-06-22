@@ -21,6 +21,7 @@ const Hero = () => {
             opacity: 0.5,
             zIndex: 1,
           }}
+          className="d-none d-md-flex"
         />
 
         <Image

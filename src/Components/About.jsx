@@ -13,7 +13,7 @@ const About = () => {
           className="d-flex justify-content-center"
           style={{ position: "relative", top: -12 }}
         >
-          <Image src={ImageAbout} width={340} />
+          <Image src={ImageAbout} width={240} />
         </Col>
         <Col lg={7}>
           <div className="button-name">

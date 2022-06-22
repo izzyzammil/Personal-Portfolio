@@ -107,7 +107,7 @@ const Portfolio = () => {
   };
 
   return (
-    <Container className="py-5" id="portfolio">
+    <Container className="py-5" id="porfolio">
       <div className="d-flex align-items-center flex-column">
         <div className="button-name">
           <span>MY PORTFOLIO</span>
